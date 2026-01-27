@@ -54,15 +54,14 @@ jobs:
 
       - name: Send Email Notification
         if: always()
-        uses: dawidd6/action-send-mail@v3
+        uses: dawidd6/action-send-mail@v5
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          secure: true
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: Phoenix InWarranty Flow Execution Notification
-          to: nareenkatkam53@gmail.com
+          to: nareenkatkam@gmail.com
           from: ${{ secrets.EMAIL_USERNAME }}
           body: |
             Hi,
