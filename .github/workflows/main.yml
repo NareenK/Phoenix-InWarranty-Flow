@@ -31,7 +31,6 @@ jobs:
 
       - name: Run Postman Collection with Newman
         run: |
-          mkdir -p newman
           newman run Inwaranty-flow.postman_collection.json \
             -e QA.postman_environment.json \
             -d TestData.csv \
@@ -50,7 +49,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: newman
+          publish_dir: newman/
 
       - name: Send Email Notification
         if: always()
@@ -58,11 +57,11 @@ jobs:
         with:
           server_address: smtp.gmail.com
           server_port: 465
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
+          username: ${{ secrets.EMAIL_USERNAME1 }}
+          password: ${{ secrets.EMAIL_PASSWORD1 }}
           subject: Phoenix InWarranty Flow Execution Notification
           to: nareenkatkam@gmail.com
-          from: ${{ secrets.EMAIL_USERNAME }}
+          from: ${{ secrets.EMAIL_USERNAME1 }}
           body: |
             Hi,
 
