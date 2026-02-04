@@ -6,8 +6,8 @@ on:
 
   workflow_dispatch:
 
-  schedule:
-    - cron: '30 02 * * *'
+  # schedule:
+  #   - cron: '30 02 * * *'
 
 jobs:
   run-postman-test:
